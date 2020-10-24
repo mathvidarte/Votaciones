@@ -1,7 +1,7 @@
 const ids=document.getElementById('ids');
 const nombre = document.getElementById('nombre');
 const registrarBtn =document.getElementById('registrarBtn');
-const idDos =document.getElementById('idDios');
+const idDos =document.getElementById('idDos');
 const votarBtn =document.getElementById('votarBtn');
 const votacionesBtn = document.getElementById('votacionesBtn');
 const candidatosBtn = document.getElementById('candidatosBtn');
@@ -10,6 +10,7 @@ let json;
 let clave;
 let valor;
 let punto = 0;
+let i;
 
 
 const database =firebase.database();
@@ -17,7 +18,7 @@ const database =firebase.database();
 
 
 registrar = () => {
-    let i = ids.value;
+    i = ids.value;
     let n = nombre.value;
 
     let objetoCandidato = {
@@ -33,15 +34,19 @@ registrar = () => {
 votar = () => {
     let is = idDos.value;
 
-    if (is == ids) {
+    if (is == clave) {
         punto++;
-        alert(json+":"+" "+punto);
+        
     }
 }
 
 todosCandidatos = () => {
     json = JSON.stringify(myArray)
     alert(json);
+}
+
+votaciones = () => {
+    alert(json+":"+" "+punto);
 }
 
 
@@ -51,6 +56,7 @@ todosCandidatos = () => {
 registrarBtn.addEventListener('click', registrar);
 votarBtn.addEventListener('click', votar);
 candidatosBtn.addEventListener('click', todosCandidatos)
+votacionesBtn.addEventListener('click', votaciones);
 
 database.ref('candidato').on('value', function(data) {
     var arrayCan = [];
@@ -58,6 +64,7 @@ database.ref('candidato').on('value', function(data) {
     data.forEach(
         function(candidatos) {
             arrayCan.push(candidatos.val().nombre);
+            clave = candidatos.key;
             myArray = arrayCan;
 
         }
