@@ -23,7 +23,8 @@ registrar = () => {
 
     let objetoCandidato = {
         ids:i,
-        nombre:n
+        nombre:n,
+    
 
     };
     
@@ -33,6 +34,16 @@ registrar = () => {
 
 votar = () => {
     let is = idDos.value;
+
+    database.ref('candidato').on('value', function(data) {
+        data.forEach (
+            function (candidatos) {
+                clave = candidatos.val().ids;
+                console.log(clave);
+            }
+        );
+    }
+    );
 
     if (is == clave) {
         punto++;
