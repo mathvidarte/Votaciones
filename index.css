@@ -1,0 +1,59 @@
+#registro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#ids {
+    
+    padding: 5px;
+    width: 300px;
+}
+
+#idDos {
+    padding: 5px;
+    width: 300px;
+}
+
+#nombre {
+    padding: 5px;
+    width: 300px;
+}
+
+#registrarBtn {
+    width: 200px;
+    padding: 5px;
+    margin: 10px, 10px, 10px, 10px;
+    background-color: cornflowerblue;
+
+}
+
+#votarBtn {
+    width: 200px;
+    padding: 5px;
+    margin: 10px, 10px, 10px, 10px;
+    background-color: cornflowerblue;
+}
+
+#candidatosBtn {
+    width: 200px;
+    padding: 5px;
+    margin: 10px, 10px, 10px, 10px;
+    position: absolute;
+    left: 900px;
+    top:35px;
+    background-color: cornflowerblue;
+}
+
+#votacionesBtn {
+    width: 200px;
+    padding: 5px;
+    margin: 10px, 10px, 10px, 10px;
+    position: absolute;
+    left: 900px;
+    top:80px;
+    background-color: cornflowerblue;
+}
+
